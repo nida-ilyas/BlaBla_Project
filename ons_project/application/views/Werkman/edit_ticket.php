@@ -6,4 +6,5 @@
  * Time: 15:20
  */
 
-echo hello;
+echo 'What';
+echo $effe;
