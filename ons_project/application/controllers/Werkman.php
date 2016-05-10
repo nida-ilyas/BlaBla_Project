@@ -23,23 +23,12 @@ class Werkman extends CI_Controller
             $data['onderwerp']= $row->onderwerp;
             $data['aanmaakDatum']=$row->datum;
             $data['type']=$row->type;
-
-
         }
         $this->load->view('header');
         $this->load->view('Werkman/index', $data);
         $this->load->view('footer');
-
-        echo count($data);
     }
 
-    public function proberen()
-    {
-        $data = $this->getAllTickets();
-        $this->load->view('header');
-        $this->load->view('Werkman/index', $data);
-        $this->load->view('footer');
-    }
     public function getAllTickets(){
         $query = $this->db->query("SELECT * FROM tickets");
         $data = array();
@@ -51,6 +40,13 @@ class Werkman extends CI_Controller
         }
 
         return $data;
+    }
+    public function editTickets(){
+        $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users' AND COLUMN_NAME = 'rol' ");
+        foreach ($query->result() as $row)
+        {
+            echo $row->COLUMN_TYPE;
+        }
     }
 
 }
