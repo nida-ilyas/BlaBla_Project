@@ -18,10 +18,14 @@
     <div class="form-group">
         <label for="sel1">Selecteer een status</label>
         <select class="form-control" id="satus" name="satus">
-            foreach( $playerlist as $key => $value )
+<?php
+            foreach( $datastat as $stat)
             {
-            <option>Geparkeerd</option>
+
+           <option>$stat</option>
+
             }
+?>
         </select>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>

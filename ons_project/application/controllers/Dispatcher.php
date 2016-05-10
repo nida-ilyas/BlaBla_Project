@@ -46,7 +46,7 @@ class Dispatcher  extends CI_Controller
      */
     public function details()
     {
-        $query = $this->db->query("SELECT * FROM tickets");
+      /*  $query = $this->db->query("SELECT * FROM tickets");
 
         foreach ($query->result() as $row)
         {
@@ -58,26 +58,60 @@ class Dispatcher  extends CI_Controller
 //            $data[campusID]=$row->campusIDT;
 
 
-        }
+        }*/
 //        $data['statussen']->get_enum_values(ticket_model, status);* /
 
-        unset($arrayStatussen);
+        /*unset($arrayStatussen);
         $arrayStatussen = array ();
-        $arrayStatussen = get_enum_values(ticket_model, status);
+        $arrayStatussen = get_enum_values(ticket_model, status);*/
 
+
+
+        $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = 'status' ");
+        foreach ($query->result() as $row) {
+            echo $row->COLUMN_TYPE;
+
+            $statussenstap1 = substr($row->COLUMN_TYPE, 5);
+            $statussenstap2 = substr($statussenstap1, 0, -1);
+            //$statussenstap3 = preg_replace(" ' ","",$statussenstap1);
+            $statussen = explode(',', $statussenstap2);
+        }
+
+            $datastat =  $statussen;
         $this->load->view('header');
-        $this->load->view('Dispatcher/details', $data, $arrayStatussen);
+        $this->load->view('Dispatcher/details', $datastat);
         $this->load->view('footer');
 
     }
     //'Geparkeerd','Afgesloten','In behandeling','Geannuleerd'
 
-    function get_enum_values( $table, $field )
+/*    function get_enum_values( $table, $field )
     {
         $type = $this->db->query( "SHOW COLUMNS FROM {$table} WHERE Field = '{$field}'" )->row( 0 )->Type;
         preg_match("/^enum\(\'(.*)\'\)$/", $type, $matches);
         $enum = explode("','", $matches[1]);
         return $enum;
+    }*/
+    public function enumStatus(){
+        $query = $this->db->query(" SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'tickets' AND COLUMN_NAME = 'status' ");
+        foreach ($query->result() as $row)
+        {
+            echo $row->COLUMN_TYPE;
+
+            $statussenstap1=  substr($row->COLUMN_TYPE,5);
+            $statussenstap2  =  substr($statussenstap1, 0, -1);
+            //$statussenstap3 = preg_replace(" ' ","",$statussenstap1);
+            $statussen  = explode(',', $statussenstap2);
+            
+        /*    foreach($statussen as &$stat){
+                echo "<br>";
+                echo "<br>";
+
+                echo  $stat;
+        }*/
+
+        }
+        return $statussen;
     }
 
     public function proberen()
