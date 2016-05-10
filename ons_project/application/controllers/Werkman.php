@@ -18,7 +18,6 @@ class Werkman extends CI_Controller
     public function index()
     {
         $query = $this->db->query("SELECT * FROM tickets");
-
         foreach ($query->result() as $row)
         {
             $data['onderwerp']= $row->onderwerp;

@@ -30,7 +30,7 @@ class ticket_model
         parent::__construct();
     }
     **/
-
+    /**
     function getAll()
     {
         $query = $this -> db ->get('tickets');
@@ -39,9 +39,9 @@ class ticket_model
     function getList(){
         $query = $this -> db ->get('tickets');
         return $query->result_array();
-        /**return $query = $this->db->get('tickets');**/
+        /**return $query = $this->db->get('tickets');
     }
-    
+     **/
     /**
     function get_content(){
         $this->db->select('omschrijving');
