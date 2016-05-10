@@ -24,16 +24,19 @@ class ticket_model
     var $hersteller="";
     var $status="";
 
-    /**
+    /*
     function __construct()
     {
         parent::__construct();
     }
-    **/
+    */
+
 
     function getAll()
     {
         $query = $this -> db ->get('tickets');
+        return $query -> result();
+        return $query -> result();
         return $query -> result();
     }
     function getList(){
