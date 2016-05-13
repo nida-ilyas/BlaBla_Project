@@ -44,11 +44,6 @@ class Dispatcher  extends CI_Controller
                  $data['naam'] = $row->naam;
              }
          }*/
-
-
-    /**
-     *
-     */
     public function details()
     {
         $query = $this->db->query("SELECT * FROM tickets");

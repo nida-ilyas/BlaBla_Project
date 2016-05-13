@@ -19,7 +19,6 @@
             <th>Prioriteit</th>
             <th>Status</th>
 <!--            <th>Locatie </th>-->
-
         </tr>
         </thead>
         <tbody>
