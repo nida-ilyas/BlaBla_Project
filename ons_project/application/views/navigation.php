@@ -1,6 +1,7 @@
 <body>
 
 <!-- Navigation -->
+
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container"> <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -16,3 +17,4 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </div> <!-- /.navbar-collapse --> </div> <!-- /.container --> </nav>
+

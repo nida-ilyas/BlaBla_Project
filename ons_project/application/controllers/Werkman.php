@@ -25,6 +25,7 @@ class Werkman extends CI_Controller
             $data['type']=$row->type;
         }
         $this->load->view('header');
+        $this->load->view('navigation');
         $this->load->view('Werkman/index', $data);
         $this->load->view('footer');
     }
