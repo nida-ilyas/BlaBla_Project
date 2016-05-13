@@ -13,7 +13,8 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="<?php echo base_url(); ?>assets/css/Hamburger.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/js/Hamburger.js" rel="script">
     <!-- Custom CSS -->
     <style>
         body {
